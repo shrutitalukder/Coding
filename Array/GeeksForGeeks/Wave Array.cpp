@@ -33,42 +33,57 @@
 //4 2 8 7 10 9.
 
 //Solution
-#include<iostream>
+// { Driver Code Starts
+#include<bits/stdc++.h>
 using namespace std;
-class solution{
-  public:
-  void convertToWave(int n,vector<int>& ar){
-    if(n%2==0){
-      int temp;
-      for(int i=0;i<n;i+=2){
-        temp=ar[i];
-        ar[i]=ar[i+1];
-        ar[i+1]=temp;
-      }
+// #include <algorithm>
+
+
+ // } Driver Code Ends
+class Solution{
+    public:
+    // arr: input array
+    // n: size of array
+    //Function to sort the array into a wave-like array.
+    void convertToWave(int n, vector<int>& arr){
+        // Your code here
+        if(n%2==0){
+            int temp;
+            for(int i=0;i<n;i+=2){
+                temp=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=temp;
+            }
+        }
+        else{
+            int temp;
+            for(int i=0;i<n-1;i+=2){
+                temp=arr[i];
+                arr[i]=arr[i+1];
+                arr[i+1]=temp;
+            }
+        }
     }
-    else{
-      for(int i=0;i<n-1;i+=2){
-        int temp;
-        temp=ar[i];
-        ar[i]=ar[i+1];
-        ar[i+1]=temp;
-      }
-    }
-  }
-  int main(){
+};
+
+// { Driver Code Starts.
+
+int main()
+{
     int t,n;
-    cin>>t;                    //input testcases
-    while(t--){                //while testcases exist
-      cin>>n;                  //input size of array
-      vector<int>a(n);         //declare vector of size n
-      for(int i=0;i<n;i++){
-        cin>>a[i];             //input elements of array
-      }
-      solution ob;
-      ob.convertToWave(n,a);
-      for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";       //print array
-      }
-      cout<<endl;
+    cin>>t; //Input testcases
+    while(t--) //While testcases exist
+    {
+        cin>>n; //input size of array
+        vector<int> a(n); //declare vector of size n
+        for(int i=0;i<n;i++)
+            cin>>a[i]; //input elements of array
+        Solution ob;
+        ob.convertToWave(n, a);
+
+        for(int i=0;i<n;i++)
+            cout<<a[i]<<" "; //print array
+            
+        cout<<endl;
     }
-  }
+}  // } Driver Code Ends
